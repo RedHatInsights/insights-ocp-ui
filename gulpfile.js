@@ -2,8 +2,15 @@ const gulp = require('gulp');
 const nodemon = require('gulp-nodemon');
 const browserSync = require('browser-sync').create();
 const config = require('./config');
+
+let serverSrc = 'server.js';
  
 gulp.task('default', ['bsync'], () => {});
+
+gulp.task('static', () => {
+    serverSrc = 'server-static.js';
+    gulp.start('default');
+});
 
 gulp.task('bsync', ['nodemon'], () => {
     browserSync.init(null, {
@@ -13,10 +20,10 @@ gulp.task('bsync', ['nodemon'], () => {
     });
 });
 
-gulp.task('nodemon', ['initfiles'], (done) => {
+gulp.task('nodemon', (done) => {
     let started = false;
     return nodemon({
-        script: 'server.js',
+        script: serverSrc,
         ext: 'js jade json'
     }).on('start', () => {
         if (!started) {

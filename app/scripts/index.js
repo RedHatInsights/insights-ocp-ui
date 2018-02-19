@@ -41,7 +41,12 @@ window.onload = function () {
         fetch('/reports/' + id).then(response => {
             return response.json();
         }).then(json => {
-            var data = JSON.parse(json.report);
+            var data;
+            if (typeof json.report === 'string') {
+                data = JSON.parse(json.report);
+            } else {
+                data = json;
+            }
             Object.keys(data.reports).forEach(r => {
                 data.reports[r].expanded_ = false;
             });

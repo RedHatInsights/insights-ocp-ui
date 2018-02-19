@@ -1,0 +1,14 @@
+[
+    {
+        "image_id": "1234567890",
+        "updated_at": "Jun 1 2017"
+    },
+    {
+        "image_id": "2345678901",
+        "updated_at": "Jul 1 2017"
+    },
+    {
+        "image_id": "3456789012",
+        "updated_at": "Aug 1 2017"
+    }
+]
