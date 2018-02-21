@@ -1,5 +1,8 @@
-FROM node:6
+FROM centos:centos7
 EXPOSE 8080
+
+RUN yum install -y epel-release     
+RUN yum install -y nodejs
 
 RUN mkdir /usr/bigzam
 WORKDIR /usr/bigzam
