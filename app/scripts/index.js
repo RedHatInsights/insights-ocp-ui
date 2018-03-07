@@ -30,7 +30,9 @@ window.onload = function () {
     if (id === undefined || id === '') {
         // 401
         // just kidding we want a list
-        fetch('/reports/').then(response => {
+        fetch('/reports/', {
+            credentials: 'same-origin'
+        }).then(response => {
             return response.json();
         }).then(json => {
             app.listMode = true;
@@ -38,7 +40,9 @@ window.onload = function () {
             app.loading = false;
         });
     } else {
-        fetch('/reports/' + id).then(response => {
+        fetch('/reports/' + id, {
+            credentials: 'same-origin'
+        }).then(response => {
             return response.json();
         }).then(json => {
             var data;
