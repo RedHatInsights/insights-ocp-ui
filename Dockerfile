@@ -12,4 +12,4 @@ RUN npm install
 RUN mv node_modules/bootstrap/dist/css/bootstrap.min.css app/public
 RUN mv node_modules/jquery/dist/jquery.min.js app/scripts
 RUN mv node_modules/bootstrap/dist/js/bootstrap.min.js app/scripts
-CMD ["node", "server.js"]
+CMD ["node", "static.js"]

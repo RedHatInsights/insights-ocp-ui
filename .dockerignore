@@ -4,4 +4,3 @@ node_modules
 copy-js.sh
 gulpfile.js
 README.md
-server-static.js

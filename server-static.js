@@ -42,7 +42,7 @@ app.get('/*', (req, res) => {
 });
 
 // initialize~
-pugToHtml(templateDir, publicDir);
+// pugToHtml(templateDir, publicDir);
 http.createServer(app).listen(app.get('port'), function () {
     console.log('Big Zam listening on port %d...', app.get('port'));
 });
