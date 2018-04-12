@@ -1,8 +1,9 @@
 const fs = require('fs');
 const path = require('path');
+const config = require('./config');
 const renderFile = require('pug').renderFile;
 
-module.exports = function compilePug(pugDir, htmlDir) {
+function compilePug(pugDir, htmlDir) {
     const pugFiles = fs.readdirSync(pugDir);
     pugFiles.forEach(p => {
         console.log('Compiling %s...', p);
@@ -15,4 +16,12 @@ module.exports = function compilePug(pugDir, htmlDir) {
             }
         });
     });
-};
+}
+
+module.exports = compilePug;
+
+if (require.main === module) {
+    compilePug(
+        path.join(config.appRoot, 'templates'),
+        path.join(config.appRoot, 'public'));
+}

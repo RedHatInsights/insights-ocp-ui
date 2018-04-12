@@ -7,7 +7,6 @@ const pugToHtml = require('./pugToHtml');
 
 const config = require('./config');
 const app = express();
-const templateDir = path.join(config.appRoot, 'templates');
 const publicDir = path.join(config.appRoot, 'public');
 const scriptsDir = path.join(config.appRoot, 'scripts');
 
@@ -33,7 +32,6 @@ app.get('/*', (req, res) => {
 });
 
 // initialize~
-pugToHtml(templateDir, publicDir);
 http.createServer(app).listen(app.get('port'), function () {
     console.log('Big Zam listening on port %d...', app.get('port'));
 });
