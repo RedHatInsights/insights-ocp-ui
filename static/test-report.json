@@ -2,7 +2,7 @@
   "version": "0.3",
   "system": {
     "product": "rhel",
-    "hostname": "localhost.localdomain",
+    "hostname": "Test Image",
     "remote_branch": null,
     "system_id": "274d4859-750f-4eb1-bf5d-86dbf6794b06",
     "type": "host",

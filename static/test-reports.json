@@ -1,14 +1,20 @@
 [
     {
         "image_id": "1234567890",
+        "image_name": "Test Image A",
+        "image_tag": "latest",
         "updated_at": "Jun 1 2017"
     },
     {
         "image_id": "2345678901",
+        "image_name": "Test Image B",
+        "image_tag": "latest",
         "updated_at": "Jul 1 2017"
     },
     {
         "image_id": "3456789012",
+        "image_name": "Test Image C",
+        "image_tag": "v1",
         "updated_at": "Aug 1 2017"
     }
 ]
