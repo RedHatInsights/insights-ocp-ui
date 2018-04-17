@@ -1,74 +1,98 @@
 html
     head
         title Insights Big Zam
-        link(rel='stylesheet' href='bootstrap.css')
         link(rel='stylesheet' href='style.css')
+        link(rel='stylesheet' href='main.css')
+        link(rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous")
+        link(rel="shortcut icon" type="image/png" href="https://access.redhat.com/favicon.ico")
         script(src='https://unpkg.com/vue')
         script(src='scripts/index.js')
         script(src='scripts/jquery.min.js')
-        script(src='scripts/bootstrap.min.js')
+
     body
-        #app(v-if="!loading")
-            #list-view(v-if='listMode')
-                h1 Insights Big Zam
-                table(style='width:100%')
-                    thead
-                        tr
-                            th Image ID
-                            th Name
-                            th Tag
-                            th Last Updated
-                    tbody
-                        tr(v-for='image in listImgs' v-on:click='goTo(image.image_id)' style='cursor:pointer')
-                            td {{ image.image_id }}
-                            td {{ image.image_name }}
-                            td :{{ image.image_tag }}
-                            td {{ image.updated_at }}
+      nav.ins-l-topbar
+        // Logo
+        .logo
+      #app(v-if="!loading")
+        .list-view(v-if='listMode')
+          .ins-p-page-header
+            h1.ins-p-page-header__page-title Image List
+          .ins-c-card
+            table.ins-c-table--is-clickable
+              thead
+                tr
+                  th Image ID
+                  th Name
+                  th Tag
+                  th Last Updated
+              tbody
+                tr(v-for='image in listImgs' v-on:click='goTo(image.image_id)' style='cursor:pointer')
+                  td
+                    a {{ image.image_id }}
+                  td {{ image.image_name }}
+                  td :{{ image.image_tag }}
+                  td {{ image.updated_at }}
 
-            #focus-view(v-if='!listMode')
-                div(v-on:click='goTo()' style='cursor:pointer') Back to image list
-                //- system metadata
-                .row
-                    .col-sm-7
-                        div
-                            h2 {{ display_name }}
-                    .col-sm-5
-                        table
-                            tbody
-                                tr
-                                    td Operating System
-                                    td {{ system.metadata.release }}
-                            
-                //- separator
-                .d-flex.flex-row-reverse
-                    a(style='cursor:pointer' v-on:click='showHideAll(all, reports)') {{ all.shown ? 'Collapse all' : 'Expand all' }}
-                //- rule summaries
-                .d-flex.flex-column(v-if='Object.keys(reports).length > 0')
-                    div(v-for='report in reports')
-                        span(style='width:10px; position:absolute; margin-left:-10px; margin-top:10px; cursor:pointer' v-on:click='report.expanded_ = !report.expanded_') {{ report.expanded_ ? 'v' : '>' }}
-                        span.card.rounded-0.p-3(style='margin:5px')
-                            .card-body
-                                p
-                                    h6(style='display:inline-block') {{ report.category }}  &gt; {{ report.title.plain }}&nbsp;
-                                p
-                                    span Impact: {{ report.impact }}&nbsp;
-                                    span Likelihood: {{ report.likelihood }}&nbsp;
-                                    span Total Risk: &nbsp;
-                                div(v-show='report.expanded_')
-                                    p
-                                        h6 Detected Issues
-                                        div(v-html='report.summary.html')
-                                        div(v-html='report.details.html')
-                                    p 
-                                        h6 Steps to Resolve
-                                        div(v-html='report.resolution.html')
-                                    hr
-                                    p(v-html='report.reference.html')
+        .focus-view(v-if='!listMode')
+            .ins-l-breadcrumbs(v-on:click='goTo()' style='cursor:pointer')
+              a Image List
+              i.fas.fa-angle-right
+              span {{ display_name }}
+            //- system metadata
+            .ins-p-page-header
+              h1.ins-p-page-header__page-title {{ display_name }}
+              .ins-p-page-header__aside
+                .suptitle Operating System
+                .title {{ system.metadata.release }}
 
-                div(v-if='Object.keys(reports).length === 0')
-                    p No Actions
-                //-     p {{report.title.plain}}
-                //-     p {{report.description.plain}}
-                //-     p {{report.details.plain}}
-                //-     p {{report.resolution.plain}}
+            // Expand all
+            .ins-c-expand-all
+              a(style='cursor:pointer' v-on:click='showHideAll(all, reports)') {{ all.shown ? 'Collapse all' : 'Expand all' }}
+
+            // Rule summaries
+            .ins-c-card(v-if='Object.keys(reports).length > 0')
+              .ins-p-list-group__item--is-expandable.ins-p-list-group__item(v-for='report in reports', v-bind:class='{expanded: report.expanded_}')
+                .ins-p-list-group__item__header(v-on:click='report.expanded_ = !report.expanded_')
+                  i.fas.fa-angle-right(v-on:click='report.expanded_ = !report.expanded_')
+                  .ins-p-list-group__item__header__content
+                    .ins-l-list-group__item__header--has-severities
+                      .title(style='display:inline-block') {{ report.category }}  &gt; {{ report.title.plain }}&nbsp;
+                      ul.inline.icon-group.ins-c-severities
+                        // impact
+                        li
+                          i.ins-battery(:class="['ins-battery-' + report.impact]")
+                          span.ins-battery__label Impact
+
+                        // Likelihood
+                        li
+                          i.ins-battery(:class="['ins-battery-' + report.likelihood]")
+                          span.ins-battery__label Likelihood
+
+                        // Total Risk
+                        li.total-risk
+                          i.ins-battery(:class="['ins-battery-' + report.severity]")
+                          b.ins-battery__label Total Risk
+
+                .ins-p-list-group__item__body(v-show='report.expanded_')
+                  .detail
+                    h4.section-heading
+                      i.fas.fa-crosshairs
+                      span Detected Issues
+                    div(v-html='report.summary.html')
+                    div(v-html='report.details.html')
+
+                    h4.section-heading
+                      i.fas.fa-thumbs-up
+                      span Steps to Resolve
+                    div(v-html='report.resolution.html')
+                  hr
+                  p(v-html='report.reference.html')
+
+            div.ins-no-actions(v-if='Object.keys(reports).length === 0')
+              i.far.fa-check-circle.green
+              span No Actions
+            //-     p {{report.title.plain}}
+            //-     p {{report.description.plain}}
+            //-     p {{report.details.plain}}
+            //-     p {{report.resolution.plain}}
 

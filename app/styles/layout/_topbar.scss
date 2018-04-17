@@ -1,0 +1,11 @@
+.ins-l-topbar {
+  @include rem('padding', $global-padding*2);
+  background: $black-base;
+  color: #fff;
+
+  .logo {
+    background: url('images/l_insights-inline.svg') no-repeat;
+    fill: #fff;
+    @include rem('height', 15px);
+  }
+}

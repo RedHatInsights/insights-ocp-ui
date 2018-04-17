@@ -1,0 +1,14 @@
+.ins-no-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  @include rem('margin-bottom', $global-margin);
+
+  i {
+    @include rem('margin-bottom', 5px);
+    @include font-size(30px);
+  }
+
+  span { @include font-size(20px); }
+}

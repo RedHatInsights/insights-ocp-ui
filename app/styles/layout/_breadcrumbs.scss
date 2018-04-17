@@ -1,0 +1,11 @@
+.ins-l-breadcrumbs {
+  @include rem('padding', $global-padding $global-padding*2);
+  border-bottom: 2px solid $gray;
+  background: $white;
+
+  * + * { @include rem('margin-left', 5px); }
+
+  a { text-decoration: none; }
+
+  i { color: $gray-dark; }
+}
