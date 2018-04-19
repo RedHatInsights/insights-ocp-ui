@@ -1,0 +1,18 @@
+.ins-c-card {
+  @include rem('margin', $global-margin);
+  background: $white;
+  border: 1px solid $gray;
+  border-radius: 5px;
+}
+
+.ins-c-card__expandable {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  .ins-c-card {
+    margin-top: 0;
+  }
+  .ins-c-card__expandable-toggle {
+    @include rem('margin-left', 15px);
+    display: flex;
+  }
+}

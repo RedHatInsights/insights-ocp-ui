@@ -39,7 +39,7 @@ gulp.task('nodemon', (done) => {
 });
 
 gulp.task('sass', function () {
-    return gulp.src('./app/styles/**/*.scss')
+    return gulp.src('./app/styles/*.scss')
         .pipe(sass.sync().on('error', sass.logError))
         .pipe(gulp.dest('./app/public'));
 });

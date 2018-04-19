@@ -1,0 +1,20 @@
+// Vars
+@import "includes/_vars.scss";
+@import "includes/_colors.scss";
+@import "includes/_mixins.scss";
+@import "includes/_helpers.scss";
+
+// Layout
+@import "layout/_grid.scss";
+@import "layout/_topbar.scss";
+@import "layout/_page-header.scss";
+@import "layout/_breadcrumbs.scss";
+
+// Partials
+@import "partials/_card.scss";
+@import "partials/_tables.scss";
+@import "partials/_expand-all.scss";
+@import "partials/_list-group.scss";
+@import "partials/_severities.scss";
+@import "partials/_ins-battery.scss";
+@import "partials/_no-actions.scss";

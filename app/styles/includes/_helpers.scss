@@ -1,0 +1,33 @@
+a {
+  text-decoration: underline;
+  color: $blue;
+}
+
+h4.section-heading {
+  @include font-size(15px);
+  i {
+    margin-right: 10px;
+    font-size: 20px;
+  }
+}
+
+pre {
+  background: $gray-light;
+  color: $black-base;
+  @include rem('padding', $global-padding);
+  border: 1px solid $gray-dark;
+  border-radius: 2px;
+}
+
+.inline {
+  display: inline;
+}
+
+ul.icon-group {
+  list-style-type: none;
+  margin: 0;
+}
+
+.green {
+  color: #3f9c35;
+}

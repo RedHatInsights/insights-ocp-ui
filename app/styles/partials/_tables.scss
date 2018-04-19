@@ -1,0 +1,31 @@
+table {
+  width: 100%;
+  border-collapse: collapse;
+
+  td { text-align: left; }
+
+  thead { border-bottom: 2px solid $gray; }
+
+  th {
+    text-align: left;
+    @include font-size(14px);
+    @include rem('padding', $global-padding);
+  }
+}
+
+table tbody tr {
+  @include transition(all);
+
+  & > * {
+    @include rem('padding', $global-padding);
+    @include font-size(14px);
+  }
+}
+
+table.ins-c-table--is-clickable tbody tr:hover {
+  background: $blue-light;
+}
+
+* + table {
+  @include rem('margin-bottom', $global-margin);
+}

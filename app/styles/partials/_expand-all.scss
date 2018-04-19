@@ -1,0 +1,5 @@
+.ins-c-expand-all {
+  display: flex;
+  justify-content: flex-end;
+  @include rem('margin', $global-margin);
+}
