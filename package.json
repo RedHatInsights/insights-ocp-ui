@@ -18,7 +18,6 @@
   },
   "homepage": "https://github.com/redhatinsights/insights-bigzam#readme",
   "dependencies": {
-    "bootstrap": "4.0.0-alpha.6",
     "browser-sync": "^2.23.5",
     "express": "^4.16.2",
     "gulp-nodemon": "^2.2.1",
