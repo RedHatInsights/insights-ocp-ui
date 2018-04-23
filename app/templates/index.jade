@@ -1,6 +1,6 @@
 html
     head
-        title Insights Big Zam
+        title Red Hat Insights
         link(rel='stylesheet' href='style.css')
         link(rel='stylesheet' href='main.css')
         link(rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous")
@@ -23,14 +23,12 @@ html
                 tr
                   th Image ID
                   th Name
-                  th Tag
                   th Last Updated
               tbody
                 tr(v-for='image in listImgs' v-on:click='goTo(image.image_id)' style='cursor:pointer')
                   td
                     a {{ image.image_id }}
                   td {{ image.image_name }}
-                  td :{{ image.image_tag }}
                   td {{ image.updated_at }}
 
         .focus-view(v-if='!listMode')
