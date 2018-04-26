@@ -9,7 +9,7 @@ WORKDIR /usr/bigzam
 COPY . /usr/bigzam
 
 RUN npm install
-RUN mv node_modules/bootstrap/dist/css/bootstrap.min.css app/public
-RUN mv node_modules/jquery/dist/jquery.min.js app/scripts
+RUN node pugToHtml.js
+RUN node_modules/.bin/gulp sass
 RUN mv node_modules/bootstrap/dist/js/bootstrap.min.js app/scripts
 CMD ["node", "server.js"]
