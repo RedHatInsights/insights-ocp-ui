@@ -3,7 +3,6 @@ const express = require('express');
 const http = require('http');
 const path = require('path');
 const request = require('request');
-const pugToHtml = require('./pugToHtml');
 
 const config = require('./config');
 const app = express();
