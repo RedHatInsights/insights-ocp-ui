@@ -11,5 +11,6 @@ COPY . /usr/bigzam
 RUN npm install
 RUN node pugToHtml.js
 RUN node_modules/.bin/gulp sass
-RUN mv node_modules/bootstrap/dist/js/bootstrap.min.js app/scripts
+RUN mv node_modules/jquery/dist/jquery.min.js app/scripts
+
 CMD ["node", "server.js"]
