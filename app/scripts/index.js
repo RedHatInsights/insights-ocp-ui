@@ -7,7 +7,6 @@ window.onload = function () {
             listImgs: {},
             listMode: false,
             all: {shown: false},
-            display_name: '',
             metadata: {},
             system: {},
             reports: {},
@@ -55,7 +54,6 @@ window.onload = function () {
                 data.reports[r].expanded_ = false;
             });
 
-            app.display_name = data.system.hostname || data.system.system_id;
             app.metadata = data.system.metadata;
             app.system = data.system;
             app.reports = data.reports;
