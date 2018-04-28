@@ -12,5 +12,6 @@ RUN npm install
 RUN node pugToHtml.js
 RUN node_modules/.bin/gulp sass
 RUN mv node_modules/jquery/dist/jquery.min.js app/scripts
+RUN npm prune --production
 
 CMD ["node", "server.js"]
