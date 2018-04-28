@@ -25,6 +25,7 @@
   },
   "devDependencies": {
     "browser-sync": "^2.23.5",
-    "gulp-sass": "^4.0.1"
+    "gulp-sass": "^4.0.1",
+    "gulp-nodemon": "^2.2.1"
   }
 }
