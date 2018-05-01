@@ -57,6 +57,7 @@ window.onload = function () {
             app.metadata = data.system.metadata;
             app.system = data.system;
             app.reports = data.reports;
+            app.image_name = data.image_name;
             app.listMode = false;
             app.loading = false;
         });

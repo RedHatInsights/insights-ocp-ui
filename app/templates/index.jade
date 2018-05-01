@@ -35,10 +35,10 @@ html
             .ins-l-breadcrumbs(v-on:click='goTo()' style='cursor:pointer')
               a Image List
               i.fas.fa-angle-right
-              span {{ image.image_name }}
+              span {{ image_name }}
             //- system metadata
             .ins-p-page-header
-              h1.ins-p-page-header__page-title {{ image.image_name }}
+              h1.ins-p-page-header__page-title {{ image_name }}
               .ins-p-page-header__aside
                 .suptitle Operating System
                 .title {{ system.metadata.release }}
