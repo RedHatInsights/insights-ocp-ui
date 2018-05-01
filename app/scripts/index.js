@@ -1,9 +1,12 @@
+function _splitSha(str) {
+    return str.split('@sha256')[0]; 
+}
+
 window.onload = function () {
     var id = window.location.pathname.split('/', 2)[1];
     var app = new Vue({
         el: '#app',
         data: {
-            loading: true,
             listImgs: {},
             listMode: false,
             all: {shown: false},
@@ -22,6 +25,9 @@ window.onload = function () {
                 } else {
                     window.location.pathname = '/' + imageId;
                 }
+            },
+            splitSha: function(str) {
+                return _splitSha(str);
             }
         }
     });
@@ -36,7 +42,6 @@ window.onload = function () {
         }).then(json => {
             app.listMode = true;
             app.listImgs = json;
-            app.loading = false;
         });
     } else {
         fetch('/reports/' + id, {
@@ -48,7 +53,7 @@ window.onload = function () {
             if (typeof json.report === 'string') {
                 data = JSON.parse(json.report);
             } else {
-                data = json;
+                data = json.report;
             }
             Object.keys(data.reports).forEach(r => {
                 data.reports[r].expanded_ = false;
@@ -57,9 +62,8 @@ window.onload = function () {
             app.metadata = data.system.metadata;
             app.system = data.system;
             app.reports = data.reports;
-            app.image_name = json.image_name.split('@sha256')[0];
+            app.image_name = _splitSha(json.image_name);
             app.listMode = false;
-            app.loading = false;
         });
     }
 };

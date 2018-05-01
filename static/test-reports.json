@@ -1,19 +1,19 @@
 [
     {
         "image_id": "1234567890",
-        "image_name": "Test Image A",
+        "image_name": "docker-registry.default.svc:5000/baal/hola@sha256:874b1794cfd2a46e763c825b7920a51a42e1bc392d790bf32bcd42f584504f23",
         "image_tag": "latest",
         "updated_at": "Jun 1 2017"
     },
     {
         "image_id": "2345678901",
-        "image_name": "Test Image B",
+        "image_name": "docker-registry.default.svc:5000/baal/hola@sha256:874b1794cfd2a46e763c825b7920a51a42e1bc392d790bf32bcd42f584504f23",
         "image_tag": "latest",
         "updated_at": "Jul 1 2017"
     },
     {
         "image_id": "3456789012",
-        "image_name": "Test Image C",
+        "image_name": "docker-registry.default.svc:5000/baal/hola@sha256:874b1794cfd2a46e763c825b7920a51a42e1bc392d790bf32bcd42f584504f23",
         "image_tag": "v1",
         "updated_at": "Aug 1 2017"
     }

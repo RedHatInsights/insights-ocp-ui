@@ -13,7 +13,7 @@ html
       nav.ins-l-topbar
         // Logo
         .logo
-      #app(v-if="!loading")
+      #app(v-cloak)
         .list-view(v-if='listMode')
           .ins-p-page-header
             h1.ins-p-page-header__page-title Image List
@@ -21,14 +21,11 @@ html
             table.ins-c-table--is-clickable
               thead
                 tr
-                  th Image ID
                   th Name
                   th Last Updated
               tbody
                 tr(v-for='image in listImgs' v-on:click='goTo(image.image_id)' style='cursor:pointer')
-                  td
-                    a {{ image.image_id }}
-                  td {{ image.image_name }}
+                  td {{ splitSha(image.image_name) }}
                   td {{ image.updated_at }}
 
         .focus-view(v-if='!listMode')
