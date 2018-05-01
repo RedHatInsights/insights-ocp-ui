@@ -2,6 +2,5 @@ node_modules
 .gitignore
 .jshintrc
 copy-js.sh
-gulpfile.js
 README.md
 server-static.js
