@@ -22,10 +22,12 @@ html
               thead
                 tr
                   th Name
+                  th Image ID
                   th Last Updated
               tbody
                 tr(v-for='image in listImgs' v-on:click='goTo(image.image_id)' style='cursor:pointer')
                   td {{ splitSha(image.image_name) }}
+                  td {{ image.image_id }}
                   td {{ image.updated_at }}
 
         .focus-view(v-if='!listMode')
