@@ -2,10 +2,11 @@
 %global repo         insights-ocp-ui
 %global commit        v0.0.1
 %global shortcommit   %(c=%{commit}; echo ${c:0:7})
+%define debug_package %{nil}
 
 Name:          insights-ocp-ui
 Version:        0.0.1
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Insights UI for Openshift Container Platform Image scanning
 License:        ASL 2.0
 URL:            https://github.com/redhatinsights/insights-ocp-ui
@@ -22,13 +23,13 @@ Insights UI for Openshift Container Platform Image scanning
 %{__rm} -f .gitignore
 
 %install
-mkdir -p %{buildroot}/usr/lib/insights-ocp-ui
-cp -r ./ %{buildroot}/usr/lib/insights-ocp-ui
+mkdir -p %{buildroot}/opt/insights-ocp-ui
+cp -r ./ %{buildroot}/opt/insights-ocp-ui
 
 
 %files
 #%doc LICENSE README.md
-/usr/lib/insights-ocp-ui
+/opt/insights-ocp-ui
 
 
 
@@ -37,6 +38,9 @@ rm -rf %{buildroot}
 
 
 %changelog
+* Tue May 08 2018 Lindani Phiri <lphiri@redhat.com> - 0.0.1-2
+- Address RPM diff issues
+
 * Wed May 02 2018 Lindani Phiri <lphiri@redhat.com> - 0.0.1-1
 - Initial Release
 
