@@ -39,7 +39,8 @@ rm -rf %{buildroot}
 
 %changelog
 * Tue May 08 2018 Lindani Phiri <lphiri@redhat.com> - 0.0.1-2
-- Address RPM diff issues
+- Address RPM diff issues 
+- Scan in controller 
 
 * Wed May 02 2018 Lindani Phiri <lphiri@redhat.com> - 0.0.1-1
 - Initial Release
